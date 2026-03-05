@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+{% if product %}
+  <div class="card" style="margin:40px;">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <div class="price">{{ product.price }}₸</div>
+
+    {% if product.in_stock %}
+      <p>В наличии</p>
+    {% else %}
+      <p>Нет в наличии</p>
+    {% endif %}
+
+    <p>Slug: {{ product.slug }}</p>
+    <p><a href="/catalog/">← Назад в каталог</a></p>
+  </div>
+{% else %}
+  <p>Товар не найден.</p>
+{% endif %}
+
+{% endblock %}

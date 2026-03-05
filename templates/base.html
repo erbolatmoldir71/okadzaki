@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+    .card{
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+    }
+
+    .card:hover{
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card-img{
+        transition: transform 0.2s ease;
+    }
+
+    .card:hover .card-img{
+        transform: scale(1.03);
+    }
+    .card-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+        
+    .card-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .section-title {
+        margin-left: 40px;
+        margin-top: 20px;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .categories{
+        display: flex;
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .cat{
+        border: none;
+        background: #f2f2f2;
+        padding: 8px 16px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .cat:hover{
+        background: #ddd;
+    }
+
+    .cat.active{
+        background: #e63946;
+        color: white;
+    }
+
+        body { font-family: Arial; background:#ffffff; color:#000000; margin:0 }
+        header { padding:20px; text-align:left; padding: 20px 40px; background:#fdfdfd }
+        .menu { display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:20px; padding:40px }
+        .card { background:#e4e4e4; padding:20px; border-radius:12px }
+        .price { color:#000000; font-weight:bold }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Okadzaki — суши и пицца 24/7 в Астане и Алматы</h1>
+    <div class="categories">
+    <button class="cat active">Сеты</button>
+    <button class="cat">Ифтар сеты</button>
+    <button class="cat">Роллы</button>
+    <button class="cat">Суши</button>
+    <button class="cat">Пиццы</button>
+    <button class="cat">Напитки</button>
+</div>
+    <nav>
+        <a href="/">Главная</a> |
+        <a href="/about/">О нас</a> |
+        <a href="/catalog/">Каталог</a> |
+        <a href="/category/rolls/">Категория</a>
+    </nav>
+    <hr>
+</header>
+
+{% block content %}{% endblock %}
+</body>
+<script>
+const buttons = document.querySelectorAll(".cat");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+
+        btn.classList.add("active");
+    });
+});
+</script>
+</html>
