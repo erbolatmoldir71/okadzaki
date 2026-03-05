@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Okadzaki Cafe</title>
+</head>
+<body>
+
+<h1 style="font-size:50px; letter-spacing:2px;">
+    Okadzaki Cafe
+</h1>
+<h2>Okadzaki — суши и пицца 24/7 в Астане и Алматы
+</h2>
+
+<nav style="font-size:20px; letter-spacing:2px;" >
+    <a href="/">Home</a> |
+    <a href="/menu/">Menu</a> |
+    <a href="/branches/">Branches</a> |
+    <a href="/about/">About</a> |
+    <a href="{% url 'products' %}">Products</a>
+</nav>
+
+<hr>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>About Okadzaki</h2>
+
+<p>Total branches: {{ info.branches_total }}</p>
+<p>Astana: {{ info.astana }}</p>
+<p>Almaty: {{ info.almaty }}</p>
+
+{% if info.halal %}
+    <p>✔ All products are Halal certified</p>
+{% endif %}
+
+{% if info.kids_zone %}
+    <p>✔ Kids zones available in many branches</p>
+{% endif %}
+
+{% endblock %}

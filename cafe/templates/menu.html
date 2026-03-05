@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Сеты</h2>
+
+<div style="display:flex; gap:20px; flex-wrap:wrap;">
+
+{% for dish in dishes %}
+<div style="border:1px solid #ddd; padding:15px; width:250px; border-radius:10px;">
+
+    <img src="{% static dish.image %}" width="100%">
+
+    <h3>{{ dish.name }}</h3>
+    <p>{{ dish.description }}</p>
+
+    <p style="text-decoration: line-through; color:gray;">
+        {{ dish.old_price }} ₸
+    </p>
+
+    <p style="font-weight:bold; font-size:18px;">
+        {{ dish.price }} ₸
+    </p>
+
+</div>
+{% endfor %}
+
+</div>
+<h2 style="margin-top:50px;">Ифтар сеты</h2>
+
+<div style="display:flex; gap:20px; flex-wrap:wrap;">
+
+{% for dish in iftar_sets %}
+<div style="border:1px solid #ddd; padding:15px; width:250px; border-radius:10px;">
+
+    <img src="{% static dish.image %}" width="100%">
+
+    <h3>{{ dish.name }}</h3>
+    <p>{{ dish.description }}</p>
+
+    <p style="text-decoration: line-through; color:gray;">
+        {{ dish.old_price }} ₸
+    </p>
+
+    <p style="font-weight:bold; font-size:18px;">
+        {{ dish.price }} ₸
+    </p>
+
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Branch №{{ id }}</h2>
+
+{% if id <= 15 %}
+    <p>This branch is located in Astana.</p>
+{% else %}
+    <p>This branch is located in Almaty.</p>
+{% endif %}
+
+{% endblock %}
