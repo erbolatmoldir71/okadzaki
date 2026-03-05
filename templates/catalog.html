@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<section class="menu">
+  {% if products %}
+    {% for item in products %}
+      <div class="card">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <div class="price">{{ item.price }}₸</div>
+
+        {% if item.in_stock %}
+          <p>В наличии</p>
+        {% else %}
+          <p>Нет в наличии</p>
+        {% endif %}
+
+        <p><a href="/product/{{ item.id }}/">Открыть</a></p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>Пока нет товаров.</p>
+  {% endif %}
+</section>
+
+{% endblock %}
+<h2>Категории</h2>
+
+<ul>
+  {% for c in categories %}
+    <li>
+      <a href="/category/{{ c.slug }}/">
+        {{ c.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

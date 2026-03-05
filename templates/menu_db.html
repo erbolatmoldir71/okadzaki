@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<section class="menu">
+  {% for item in products %}
+    <div class="card">
+      <h3>{{ item.name }}</h3>
+
+      <p><b>Категория:</b> {{ item.category.name }}</p>
+
+      <p>{{ item.description }}</p>
+
+      <div class="price">{{ item.price }}₸</div>
+
+      {% if item.in_stock %}
+        <p>В наличии</p>
+      {% else %}
+        <p>Нет в наличии</p>
+      {% endif %}
+
+      <p><b>Ингредиенты:</b>
+        {% for ing in item.ingredients.all %}
+          {{ ing.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

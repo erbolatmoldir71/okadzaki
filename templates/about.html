@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<p>Ресторан: <b>{{ shop_name }}</b></p>
+<p>Город: {{ city }}</p>
+
+{% if is_open %}
+  <p>🟢 Сейчас открыто</p>
+{% else %}
+  <p>🔴 Сейчас закрыто</p>
+{% endif %}
+
+{% endblock %}

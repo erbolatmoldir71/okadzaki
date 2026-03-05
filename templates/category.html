@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+{% if category %}
+  <p>Категория: <b>{{ category.title }}</b> ({{ category.slug }})</p>
+{% else %}
+  <p>Категория не найдена.</p>
+{% endif %}
+
+<section class="menu">
+  {% for item in products %}
+    <div class="card">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+      <div class="price">{{ item.price }}₸</div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
